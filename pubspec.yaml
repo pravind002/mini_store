@@ -29,7 +29,13 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+ mobile_number: ^1.0.4
+ email_auth: ^1.0.0
+ get: ^4.6.5
+ carousel_slider: ^4.1.1
  dartx: any
+ photo_view: ^0.14.0
+ #firebase_auth:
  
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
