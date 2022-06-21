@@ -1,121 +1,65 @@
-//import 'package:flutter/material.dart';
-/*
-class SearchAppBar extends StatefulWidget {
-  const SearchAppBar({Key? key}) : super(key: key);
+import 'package:flutter/material.dart';
 
-  @override
-  _SearchAppBarState createState() => _SearchAppBarState();
-}
+class SearchPage extends SearchDelegate {
+  Color? color;
+  List<String> data = ['Android', 'Mac', 'Windows', 'Linux', 'Parrot OS'];
 
-class _SearchAppBarState extends State<SearchAppBar> {
-  Widget appBarTitle = const Text("AppBar Title");
-  Icon actionIcon = const Icon(Icons.search);
+  List<String> recentSearch = [
+    'Mac',
+    'Android',
+    'iOS',
+  ];
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(centerTitle: true, title: appBarTitle, actions: <Widget>[
-        IconButton(
-          icon: actionIcon,
-          onPressed: () {
-            setState(() {
-              if (actionIcon.icon == Icons.search) {
-                actionIcon = const Icon(Icons.close);
-                appBarTitle = const TextField(
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                  decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search, color: Colors.white),
-                      hintText: "Search...",
-                      hintStyle: TextStyle(color: Colors.white)),
-                );
-              } else {
-                actionIcon = const Icon(Icons.search);
-                appBarTitle = const Text("AppBar Title");
-              }
-            });
-          },
-        ),
-      ]),
-    );
+  List<Widget>? buildActions(BuildContext context) {
+    return <Widget>[
+      IconButton(
+        icon: const Icon(Icons.clear),
+        onPressed: () {
+          query = '';
+        },
+      )
+    ];
   }
-}
-*/
-
-
-
-/*
-class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key}) : super(key: key);
 
   @override
-  _SearchPageState createState() => _SearchPageState();
-}
-
-class _SearchPageState extends State<SearchPage> {
-  String? _result;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Search')),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            Text(_result ?? '', style: TextStyle(fontSize: 18)),
-            ElevatedButton(
-              onPressed: () async {
-                var result = await showSearch<String>(
-                  context: context,
-                  delegate: CustomDelegate(),
-                );
-                setState(() => _result = result);
-              },
-              child: Text('Search'),
-            ),
-          ],
-        ),
-      ),
-    );
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+        icon: const Icon(Icons.arrow_back),
+        onPressed: () => Navigator.pop(context));
   }
-}
-
-class CustomDelegate extends SearchDelegate<String> {
-  List<String> data = nouns.take(100).toList();
-
-  //static get nouns => null;
 
   @override
-  List<Widget> buildActions(BuildContext context) =>
-      [IconButton(icon: Icon(Icons.clear), onPressed: () => query = '')];
-
-  @override
-  Widget buildLeading(BuildContext context) => IconButton(
-      icon: Icon(Icons.chevron_left), onPressed: () => close(context, ''));
-
-  @override
-  Widget buildResults(BuildContext context) => Container();
+  Widget buildResults(BuildContext context) {
+    if (query != null && data.contains(query.toLowerCase())) {
+      return ListTile(
+        title: Text(query),
+        onTap: () {},
+        textColor: Colors.black,
+        //textColor: Colors.black,
+      );
+    } else if (query == '') {
+      return const Text('');
+    } else {
+      return ListTile(
+        title: const Text('No Results Found'),
+        onTap: () {},
+        textColor: Colors.black,
+      );
+    }
+  }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    var listToShow;
-    if (query.isNotEmpty)
-      listToShow =
-          data.where((e) => e.contains(query) && e.startsWith(query)).toList();
-    else
-      listToShow = data;
-
     return ListView.builder(
-      itemCount: listToShow.length,
-      itemBuilder: (_, i) {
-        var noun = listToShow[i];
-        return ListTile(
-          title: Text(noun),
-          onTap: () => close(context, noun),
-        );
-      },
-    );
+        itemCount: recentSearch.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(recentSearch[index]),
+            trailing: const Icon(
+              Icons.arrow_forward_ios,
+            ),
+            onTap: () {},
+          );
+        });
   }
 }
-
-*/

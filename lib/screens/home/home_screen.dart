@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mini_store/login/login.dart';
+import 'package:mini_store/screens/components/account_manager.dart';
 import 'package:mini_store/screens/components/body.dart';
 import 'package:mini_store/screens/components/search_bar.dart';
 import 'package:mini_store/screens/tabs/categories.dart';
@@ -22,7 +23,6 @@ class _BottomNavbar extends State<HomeScreen> {
     ProductsView(),
     Notifiction(),
     Seting(),
-    ProductsView(),
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -68,17 +68,18 @@ class _BottomNavbar extends State<HomeScreen> {
         backgroundColor: Colors.blue,
         leading: IconButton(
           icon: const Icon(Icons.account_circle),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const AccountManager(),
+            ));
+          },
         ),
         title: const Text('Mini Store'),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const Notifiction(),
-              ));
-            },
+            onPressed: () =>
+                showSearch(context: context, delegate: SearchPage()),
           ),
           IconButton(
             icon: const Icon(Icons.favorite_outline),

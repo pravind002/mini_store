@@ -24,7 +24,7 @@ class Hometab extends StatelessWidget {
               "assets/images/chocolate.jpg",
               "assets/images/extra.jpg",
               "assets/images/giftpack.jpg",
-              "assets/images/3 dairymilk.jpg",
+              "assets/images/dairymilk.jpg",
             ].map((img) {
               return Builder(
                 builder: (BuildContext context) {

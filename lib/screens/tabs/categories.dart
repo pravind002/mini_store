@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:mini_store/screens/components/body.dart';
+//0import 'package:mini_store/screens/components/body.dart';
 
 class ProductsView extends StatefulWidget {
   const ProductsView({Key? key}) : super(key: key);
@@ -16,9 +16,9 @@ class _ProductsViewState extends State<ProductsView> {
         Text(
           "Categories",
           style: TextStyle(
-            fontSize: 24,
+            fontSize: 34,
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: Colors.blueGrey,
           ),
         ),
         Categories(),
