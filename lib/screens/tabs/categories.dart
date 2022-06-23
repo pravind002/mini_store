@@ -12,11 +12,12 @@ class _ProductsViewState extends State<ProductsView> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
       children: const <Widget>[
         Text(
           "Categories",
           style: TextStyle(
-            fontSize: 34,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
             color: Colors.blueGrey,
           ),
@@ -36,55 +37,32 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  List<String> categories = [
-    'Chocolate',
-    'Cadbury',
-    '5 Start',
-    'Salty',
-    'Sweets'
-  ];
-  int selectedIndex = 0;
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 25,
-      child: ListView.builder(
-        itemCount: categories.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => Text(categories[index]),
-      ),
-    );
-  }
-}
-
-
-
-
-
-
-/*
-class Category extends StatefulWidget {
-  const Category({Key? key}) : super(key: key);
-
-  @override
-  State<Category> createState() => _CategoryState();
-  // ignore: non_constant_identifier_names
-
-}
-
-class _CategoryState extends State<Category> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: const Text(
-          'Categories',
-          style: TextStyle(color: Colors.black),
-        ),
+      body: SingleChildScrollView(
+        child: SafeArea(
+            child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Row(children: const [
+            Expanded(
+              child: Text(
+                'First Product',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            Expanded(
+              child: Text(
+                'Second Product',
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ]),
+        )),
       ),
     );
   }
 }
-
-*/
