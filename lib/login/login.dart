@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mini_store/login/create_account.dart';
-import 'package:mini_store/main.dart';
+
 import 'package:mini_store/screens/home/home_screen.dart';
 
 class LoginApp extends StatefulWidget {
