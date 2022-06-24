@@ -1,114 +1,118 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:mini_store/login/create_account.dart';
 
-class LoginApp extends StatelessWidget {
+import 'package:mini_store/screens/home/home_screen.dart';
+
+class LoginApp extends StatefulWidget {
   const LoginApp({Key? key}) : super(key: key);
 
-  static const String _title = 'Login Page';
+  @override
+  State<LoginApp> createState() => _LoginApp();
+}
 
+class _LoginApp extends State<LoginApp> {
+  //TextEditingController name = TextEditingController();
+  //TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: _title,
-      home: Scaffold(
-        appBar: AppBar(title: const Text(_title)),
-        body: const MyStatefulWidget(),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
       ),
-    );
-  }
-}
-
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
-
-  @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
-}
-
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.all(10),
-        child: ListView(
-          children: <Widget>[
-            Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
-                child: const Text(
-                  'Mini Store',
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 30),
-                )),
-            Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
-                child: const Text(
-                  'Sign in',
-                  style: TextStyle(fontSize: 20),
-                )),
-            Container(
-              padding: const EdgeInsets.all(10),
-              child: TextField(
-                controller: nameController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'User Name',
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Center(
+                child: Container(
+                  //height: 50,
+                  //width: 200,
+                  padding: const EdgeInsets.all(2),
+                  child: const Text(
+                    'Login',
+                    style: TextStyle(
+                      fontSize: 43,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      //backgroundColor: Colors.black,
+                    ),
+                  ),
                 ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Email',
+                  hintText: 'Enter the Email......',
+                ),
+              ),
+            ),
+            const Padding(
+              padding:
+                  EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 15),
               child: TextField(
                 obscureText: true,
-                controller: passwordController,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Password',
+                  hintText: 'Enter the Password......',
                 ),
               ),
             ),
-            TextButton(
-              onPressed: () {
-                //forgot password screen
-              },
+            MaterialButton(
+              onPressed: () {},
               child: const Text(
-                'Forgot Password',
+                'Forget Password',
+                style: TextStyle(
+                  color: Colors.blue,
+                ),
               ),
             ),
+            const SizedBox(
+              height: 10,
+            ),
             Container(
-                height: 50,
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: ElevatedButton(
-                  child: const Text('Login'),
-                  onPressed: () {
-                    log(nameController.text);
-                    log(passwordController.text);
-                  },
-                )),
-            Row(
-              children: <Widget>[
-                const Text('Does not have account?'),
-                TextButton(
-                  child: const Text(
-                    'Sign in',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  onPressed: () {
-                    //signup screen
-                  },
-                )
-              ],
-              mainAxisAlignment: MainAxisAlignment.center,
+              padding: const EdgeInsets.only(bottom: 0),
+              height: 50,
+              width: 200,
+              decoration: BoxDecoration(
+                  color: Colors.blue, borderRadius: BorderRadius.circular(20)),
+              child: MaterialButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const HomeScreen()));
+                },
+                child: const Text(
+                  'Login',
+                  style: TextStyle(color: Colors.white, fontSize: 25),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 130,
+            ),
+            const Text(
+              'New User ?',
+              style: TextStyle(color: Colors.black),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => const SignUpPage()));
+              },
+              child: const Text(
+                'Create Account',
+                style: TextStyle(color: Colors.blue),
+              ),
             ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 //0import 'package:mini_store/screens/components/body.dart';
 
@@ -11,23 +13,126 @@ class ProductsView extends StatefulWidget {
 class _ProductsViewState extends State<ProductsView> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const <Widget>[
-        Text(
-          "Categories",
-          style: TextStyle(
-            fontSize: 34,
-            fontWeight: FontWeight.bold,
-            color: Colors.blueGrey,
-          ),
-        ),
-        Categories(),
-      ],
+    return Scaffold(
+      body: Center(
+        child: GridView.extent(
+            primary: false,
+            padding: const EdgeInsets.all(16),
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            maxCrossAxisExtent: 200.0,
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/images/chocolate.jpg'),
+                  fit: BoxFit.fill,
+                )),
+                child: const Text(
+                  'Chocolate',
+                  style: TextStyle(fontSize: 20),
+                  //textAlign: TextAlign.end,
+                ),
+                //color: Colors.blue,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/images/a.jpg'),
+                  fit: BoxFit.fill,
+                )),
+                //child: const Text('Cadbury', style: TextStyle(fontSize: 20)),
+                //color: Colors.blue,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/images/c.jpg'),
+                  fit: BoxFit.fill,
+                )),
+                // child: const Text('Biscuits', style: TextStyle(fontSize: 20)),
+                //color: Colors.blue,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/images/e.jpg'),
+                  fit: BoxFit.fill,
+                )),
+                //child: const Text('Milk', style: TextStyle(fontSize: 20)),
+                //  color: Colors.blue,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/images/g.jpg'),
+                  fit: BoxFit.fill,
+                )),
+                //child: const Text('Vegetables', style: TextStyle(fontSize: 20)),
+                //color: Colors.blue,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/images/extra.jpg'),
+                  fit: BoxFit.fill,
+                )),
+                //child: const Text('Oil', style: TextStyle(fontSize: 20)),
+                // color: Colors.blue,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/images/giftpack.jpg'),
+                  fit: BoxFit.fill,
+                )),
+                //child: const Text('Maggi', style: TextStyle(fontSize: 20)),
+                // color: Colors.blue,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/images/f.jpg'),
+                  fit: BoxFit.fill,
+                )),
+                //child: const Text('Grocery', style: TextStyle(fontSize: 20)),
+                //color: Colors.blue,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/images/g.jpg'),
+                  fit: BoxFit.fill,
+                )),
+                //child: const Text('Fruites', style: TextStyle(fontSize: 20)),
+                // color: Colors.blue,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/images/a.jpg'),
+                  fit: BoxFit.fill,
+                )),
+                // child: const Text('Candy', style: TextStyle(fontSize: 20)),
+                //color: Colors.blue,
+              ),
+            ]),
+      ),
     );
   }
 }
 //Create Categories Page
-
+/*
 class Categories extends StatefulWidget {
   const Categories({Key? key}) : super(key: key);
 
@@ -36,55 +141,33 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  List<String> categories = [
-    'Chocolate',
-    'Cadbury',
-    '5 Start',
-    'Salty',
-    'Sweets'
-  ];
-  int selectedIndex = 0;
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 25,
-      child: ListView.builder(
-        itemCount: categories.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => Text(categories[index]),
-      ),
-    );
-  }
-}
-
-
-
-
-
-
-/*
-class Category extends StatefulWidget {
-  const Category({Key? key}) : super(key: key);
-
-  @override
-  State<Category> createState() => _CategoryState();
-  // ignore: non_constant_identifier_names
-
-}
-
-class _CategoryState extends State<Category> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: const Text(
-          'Categories',
-          style: TextStyle(color: Colors.black),
-        ),
+      body: SingleChildScrollView(
+        child: SafeArea(
+            child: SizedBox(
+          //  height: 500, //MediaQuery.of(context).size.height,
+          //width: 300, //MediaQuery.of(context).size.width,
+          child: Row(children: const [
+            Expanded(
+              child: Text(
+                'First Product',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            Expanded(
+              child: Text(
+                'Second Product',
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ]),
+        )),
       ),
     );
   }
 }
-
 */

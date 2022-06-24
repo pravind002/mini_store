@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class SearchPage extends SearchDelegate {
-  Color? color;
   List<String> data = ['Android', 'Mac', 'Windows', 'Linux', 'Parrot OS'];
 
   List<String> recentSearch = [
@@ -32,13 +31,19 @@ class SearchPage extends SearchDelegate {
   Widget buildResults(BuildContext context) {
     if (query != null && data.contains(query.toLowerCase())) {
       return ListTile(
-        title: Text(query),
+        title: Text(
+          query,
+          style: const TextStyle(color: Colors.black),
+        ),
         onTap: () {},
         textColor: Colors.black,
         //textColor: Colors.black,
       );
     } else if (query == '') {
-      return const Text('');
+      return const Text(
+        '',
+        style: TextStyle(color: Colors.black),
+      );
     } else {
       return ListTile(
         title: const Text('No Results Found'),
@@ -54,7 +59,10 @@ class SearchPage extends SearchDelegate {
         itemCount: recentSearch.length,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text(recentSearch[index]),
+            title: Text(
+              recentSearch[index],
+              style: const TextStyle(color: Colors.black),
+            ),
             trailing: const Icon(
               Icons.arrow_forward_ios,
             ),
