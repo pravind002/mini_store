@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 //0import 'package:mini_store/screens/components/body.dart';
 
@@ -26,14 +24,10 @@ class _ProductsViewState extends State<ProductsView> {
                 padding: const EdgeInsets.all(8),
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                  image: AssetImage('assets/images/chocolate.jpg'),
+                  image: AssetImage('assets/images/sprite.jpg'),
                   fit: BoxFit.fill,
                 )),
-                child: const Text(
-                  'Chocolate',
-                  style: TextStyle(fontSize: 20),
-                  //textAlign: TextAlign.end,
-                ),
+                //child: const Text('Chocolate',style: TextStyle(fontSize: 20),),
                 //color: Colors.blue,
               ),
               Container(
@@ -110,7 +104,7 @@ class _ProductsViewState extends State<ProductsView> {
                 padding: const EdgeInsets.all(8),
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                  image: AssetImage('assets/images/g.jpg'),
+                  image: AssetImage('assets/images/safola.jpg'),
                   fit: BoxFit.fill,
                 )),
                 //child: const Text('Fruites', style: TextStyle(fontSize: 20)),
@@ -121,6 +115,36 @@ class _ProductsViewState extends State<ProductsView> {
                 decoration: const BoxDecoration(
                     image: DecorationImage(
                   image: AssetImage('assets/images/a.jpg'),
+                  fit: BoxFit.fill,
+                )),
+                // child: const Text('Candy', style: TextStyle(fontSize: 20)),
+                //color: Colors.blue,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/images/fruites.jpg'),
+                  fit: BoxFit.fill,
+                )),
+                // child: const Text('Candy', style: TextStyle(fontSize: 20)),
+                //color: Colors.blue,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/images/pepper.jpg'),
+                  fit: BoxFit.fill,
+                )),
+                // child: const Text('Candy', style: TextStyle(fontSize: 20)),
+                //color: Colors.blue,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('assets/images/milk.jpg'),
                   fit: BoxFit.fill,
                 )),
                 // child: const Text('Candy', style: TextStyle(fontSize: 20)),
